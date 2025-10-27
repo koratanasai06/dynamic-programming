@@ -1,0 +1,17 @@
+Memoization(Top-down)
+=========================================================================
+Memoization is top-down approach and uses recursion to solve problems.
+
+Memoization = recursive + Cache – Recomputing subproblems
+
+
+
+
+Dynamic Programming(Bottom-up)
+==========================================================================
+Dynamic programming is iterative approach and uses bottom-up approach to solve problems effectively
+
+Dynamic Programming = Iterative + Tabulation – Recomputing subproblems
+
+
+
