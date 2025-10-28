@@ -25,3 +25,54 @@ public class LongestIncreasingSubsequence {
         return memo[c][p+1]=len;
     }
 }
+
+
+
+
+
+package bottomup;
+
+
+public class LongestIncreasingSubsequence {
+    public static void main(String[] args) {
+        int[] nums=new int[]{3, 10, 2, 1, 20};
+        int[][] dp=new int[nums.length+1][nums.length+1];
+        for(int c=nums.length-1;c>=0;c--){
+            for(int p=c-1;p>=-1;p--){
+                int len=dp[c+1][p+1];
+                if(p==-1 || nums[c]>nums[p]){
+                    len=Math.max(len,1+dp[c+1][c+1]);
+                }
+                dp[c][p+1]=len;
+            }
+        }
+        System.out.println(dp[0][0]);
+
+    }
+}
+
+
+
+
+
+package spaceoptimization;
+
+
+public class LongestIncreasingSubsequence {
+    public static void main(String[] args) {
+        int[] nums=new int[]{3, 10, 2, 1, 20};
+        int[] prev=new int[nums.length+1],cur=new int[nums.length+1];
+        for(int c=nums.length-1;c>=0;c--){
+            for(int p=c-1;p>=-1;p--){
+                int len=prev[p+1];
+                if(p==-1 || nums[c]>nums[p]){
+                    len=Math.max(len,1+prev[c+1]);
+                }
+                cur[p+1]=len;
+            }
+            prev=cur.clone();
+        }
+        System.out.println(prev[0]);
+    }
+}
+
