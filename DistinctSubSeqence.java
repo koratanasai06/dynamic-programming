@@ -30,3 +30,35 @@ public class DistinctSubSeqence {
 
     }
 }
+
+
+
+
+
+package bottomup;
+
+public class DistinctSubSeqence {
+    public static void main(String[] args) {
+        String s="rabbbit";
+        String t="rabbit";
+        int[][] memo=new int[s.length()][t.length()];
+        if(s.charAt(0) == t.charAt(0)){
+            memo[0][0]=1;
+        }
+        for(int i=1;i<s.length();i++){
+            for(int j=0;j<t.length();j++){
+                if(j<=i){
+                    int pick=0;
+                    if(s.charAt(i)==t.charAt(j))
+                        pick=memo[i-1][j-1];
+                    int notPick=memo[i-1][j];
+
+                    memo[i][j]=pick+notPick;
+                }
+            }
+        }
+        System.out.println(memo[s.length()-1][t.length()-1]);
+    }
+}
+
+
