@@ -84,34 +84,3 @@ public class BestTimeToBuyShell3 {
 }
 
 
-
-
-package spaceoptimization;
-
-public class BestTimeBuyShell3Opt {
-    public static void main(String[] args) {
-        int[] p=new int[]{3,3,5,0,0,3,1,4};
-        int[] prev=new int[5],curr=new int[5];
-
-        //base case already 0
-
-        for(int i=p.length-1;i>=0;i--){
-            for(int t=3;t>=0;t--){
-                if(t%2==0){
-                    curr[t]=Math.max(-p[i]+prev[t+1],prev[t]);
-                }else{
-                    curr[t]=Math.max(p[i]+prev[t+1],prev[t]);
-                }
-            }
-            prev=curr.clone();
-        }
-
-        System.out.println(curr[0]);
-
-    }
-}
-
-
-
-
-
